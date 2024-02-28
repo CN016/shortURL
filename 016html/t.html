@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跳转~</title>
+</head>
+<body>
+<p id="eee" style="display: none">{{.url}}</p>
+<script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+        // Your JavaScript code here
+            let url = document.getElementById("eee").textContent;
+            window.location.replace(fixUrlProtocol(url))
+    });
+        function fixUrlProtocol(url) {
+            // 如果 URL 不以 "http://" 或 "https://" 开头，则添加 "http://"
+            if (!url.startsWith("http://") && !url.startsWith("https://")) {
+                url = "http://" + url;
+            }
+            return url;
+        }
+</script>
+</body>
+</html>
